@@ -4,7 +4,14 @@ function HomeController ($scope, URL, $http) {
   $scope.name = 'Tim Whitacre';
   
   $scope.addPet = function (petObj) {
-    console.log(petObj);
+    
+    $http.post(URL, petObj).then(function(res) {
+      console.log(res);
+      
+      $scope.pet = {};
+    });
+    
+    
   }
     
 }
